@@ -1,6 +1,5 @@
 import type { AWS } from "@serverless/typescript";
-
-import hello from "@functions/hello";
+import * as books from "@functions/books/handlers";
 
 const serverlessConfiguration: AWS = {
   service: "api-luz-verde",
@@ -20,7 +19,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { hello },
+  functions: { ...books },
   package: { individually: true },
   custom: {
     esbuild: {
